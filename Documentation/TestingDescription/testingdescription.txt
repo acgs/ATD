@@ -1,0 +1,113 @@
+Team ATD User Stories
+
+1.0 As a user, I need to automate testing, so I can check that software will potentially work on a given system.
+
+    1.1 As a user, I want to specify the repo holding the software, so I can run unit tests.
+		
+		Given a set of paths to unit test files
+		Given a valid, cloneable git repo address
+		Then the repo is cloned in a docker container
+		And the tests are run in the docker container
+		
+		Given an invalid address
+		When I run ATD
+		Then an error is thrown
+		And no tests are run
+
+    1.2 As a user, I want to specify the distro used to run the software, so I can test on multiple distros.
+	
+		Given a set of valid distro names
+		When I run ATD
+		Then a different docker container is created for each distro
+		
+		Given an invalid distro name
+		When I run ATD
+		Then an error is thrown
+		And no new container is created
+		And error Notification is created		
+
+    1.3 As a user, I want to run the testing from my language of choice, so I can run software from arbitrary repos.
+
+		Given a repo address
+		And a set of test files
+		When I run ATD
+		Then the tests are run with the appropriate language
+	
+        1.3.1 As a user, I need to use python testing, so I can test Teleceptor.
+		
+			Given Teleceptor repo address
+			And Teleceptor unit tests
+			When I run ATD
+			Then the tests are run using Python
+
+    1.4 As a user, I want specified test files, so I can run specific test cases.
+	
+		Given a set of test files
+		When I run ATD
+		Then those tests are run
+
+    1.5 As a user, I want to be able to specify an email address, so I can receive the results of the tests.
+	
+		Given failed tests
+		Given an email address
+		When I run Notifier
+		Then an email is sent to email address with failed tests
+		
+		Given passed tests
+		Given an email address
+		When I run Notifier
+		Then no email is sent
+
+    1.6 As a user, I need a way to store the results from the tests, so I can check the results of the tests.
+
+        1.6.1 As a user, I want ATD to produce a logfile, so I can store the results from the tests.
+
+			Given test files that will fail
+			And test files that will pass
+			When I run ATD (OutputManager)
+			Then a logfile is produced with the results
+
+	1.7 As a user, I want the results from the tests that will print to the screen, so I can view the results.
+	
+		Given test files that will fail
+		And test files that will pass
+		When I run ATD (OutputManager)
+		Then the results are printed to stdout
+		
+	1.8 As a user of the repo, I need to specify a branch, so I can run ATD on that branch.
+	
+		Given a branch name
+		When I run ATD
+		Then ATD uses the given branch of the repo
+	
+2.0 As a developer of the repo, I need to automate testing, so I can test that the software works.
+
+    2.1 As a developer of the repo, I need to create a folder in the repo, so I can store test files for ATD.
+
+        2.1.1 As a developer of the repo, I need to create a config file, so I can provide it to ATD to install the necessary dependencies.
+		
+			Given an ATD config file
+			Then a list of dependencies is in the file
+
+        2.1.2 As a developer of the repo, I need to create a test file in the test folder, so I can have a place to hold the test cases.
+		
+			Given ATD file
+			Then a list of test files is in the file
+
+    2.2 As a developer of the repo, I need to automatically run ATD periodically, so I can test the most recent build.
+	
+		Given the repo address and test files
+		Given a time period
+		When the time period ends/starts
+		Then ATD runs with the most recent build
+
+    2.3 As a developer of the repo, I need to know if a failure in testing occurs, so I can correct the problem.
+	
+		Given a failed test
+		Then I am notified which test failed
+
+        2.3.1 As a developer, I want to be notified of which commit first failed the test, so I can know when the bug was made.
+			
+			Given a failed test
+			Then I am notified which commit failed
+

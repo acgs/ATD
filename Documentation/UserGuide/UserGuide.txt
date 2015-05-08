@@ -1,0 +1,42 @@
+﻿ATD User Guide
+
+ATD depends on Docker and python 2.7. Installation of Docker is beyond the scope of this guide. Please refer to the Docker online documentation for installation instructions for your platform.
+
+
+At first, the user should create a config file which includes some parameters as follows (provided information is used as an example):
+1. distro= wheezy
+[wheezy] is the version of operating system that is being used by the user
+
+2. apt_dependencies= bash sudo cron vim git python2.7 python-pip sqlite3 ca-certificates  python-sqlite
+The dependencies for apt-get on debian based distros.
+
+3. repository_url= https://github.com/visgence/teleceptor.git
+[URL] defines the url address of repository which contains the source code
+
+4. unit_test_path= /teleceptor/unittests/
+[PATH] refers to the path of unit tests, relative to the repository's directory structure
+
+5. email_address= test@test.com
+[Email] defines the email address of user
+
+There are some other optional parameters which should be filled as follows:
+1. test_commands= python functionalTest.py, python stressTest.py, python FailTest.py
+The commands that run the project's tests in the unit_test_path.
+
+2. pip_dependencies = sqlalchemy cherrypy requests whisper pySerial jinja2
+Python package dependencies to install with pip.
+
+3. branch_name = atdtest
+Branch of the git repo.
+
+
+The config file should be placed in the directory that ATD is called from, e.g. src/ATD.
+
+
+To run ATD, simply run the dockerController.py file from the ATD directory, i.e.:
+    python DockerController/dockerController.py
+
+dockerController.py will read in the config file from the ATD directory and automatically begin creating the necessary Docker containers to run the tests in.
+	Once the tests are finished, a report of the passed and failed tests will be output to the user, and, if any tests failed, an email will be sent to the provided email address.
+
+The user may run dockerController.py as a cron job. No user input is required during ATD, but the user may wish to redirect the output to a log file. Installing ATD as a cron job is beyond the scope of this document. Please refer to online sources, such as https://help.ubuntu.com/community/CronHowto

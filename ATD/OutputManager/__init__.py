@@ -1,0 +1,5 @@
+"""
+Defines outputs
+"""
+
+#from outputManager

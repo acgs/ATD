@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>147</x>
+      <y>42</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>DF Generator
+--
+-repository URL
+-unit test path
+-distro
+-email address
+-dependencies
+--
+#generateDockerFile()
+--
+Responsibilities
+-- Creates the Docker file</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>581</x>
+      <y>42</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Docker Invoke
+--
+-filename of Docker file
+--
+#invokeDockerFile()
+--
+Responsibilities
+-- Runs the Docker file
+-- Creates Docker container</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>847</x>
+      <y>49</y>
+      <w>182</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Container Manager
+--
+-dockerContainer: Docker Container
+--
+#checkStatus()
+--
+Responsibilities
+-- Monitors status of container
+-- Checks for when the 
+   instructions have completed
+-- Ensures docker stops when
+   program terminates</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>154</x>
+      <y>371</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>/Dependency/
+--
+-packageName
+-type
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>574</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Python Dependency
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>133</x>
+      <y>497</y>
+      <w>70</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>273</x>
+      <y>574</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Linux Dependency
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>497</y>
+      <w>84</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>154</x>
+      <y>252</y>
+      <w>147</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>DependencyList
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>224</x>
+      <y>322</y>
+      <w>21</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>168</y>
+      <w>49</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+has &gt;</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>854</x>
+      <y>336</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Output Manager
+--
+-outputData: String
+--
+#storeData()
+#parseOutput()
+#doNotify()
+#makeLog()
+--
+Responsibilities
+-- Checks output
+-- Generates appropriate
+   Notifications
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>917</x>
+      <y>175</y>
+      <w>49</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+has &gt;</panel_attributes>
+    <additional_attributes>20.0;230.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>938</x>
+      <y>637</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>/Notification/
+--
+-notification: String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1022</x>
+      <y>791</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Fail Notification
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>833</x>
+      <y>791</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Pass Notification
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1120</x>
+      <y>357</y>
+      <w>189</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Notifier
+--
+notificationList: NotificationList
+--
+#send_notification()
+--
+Responsibilities
+-- Sends the notifications to
+   appropriate destination based
+   on notification type</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>938</x>
+      <y>532</y>
+      <w>147</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>NotificationList
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1001</x>
+      <y>602</y>
+      <w>21</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>903</x>
+      <y>763</y>
+      <w>84</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1036</x>
+      <y>763</y>
+      <w>63</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>462</y>
+      <w>91</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+creates &gt;</panel_attributes>
+    <additional_attributes>100.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>994</x>
+      <y>392</y>
+      <w>140</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+creates &gt;</panel_attributes>
+    <additional_attributes>180.0;30.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1078</x>
+      <y>483</y>
+      <w>154</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+&lt; processes </panel_attributes>
+    <additional_attributes>10.0;120.0;200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>364</x>
+      <y>42</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Dockerfile
+--
+-commands
+--
+Responsibilities
+-- Contains commands to 
+   initalize and run in docker
+   container</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>287</x>
+      <y>98</y>
+      <w>91</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+creates &gt;</panel_attributes>
+    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>98</y>
+      <w>91</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+used by &gt;</panel_attributes>
+    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>574</x>
+      <y>245</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Docker Container
+--
+-containerName
+-containerId
+-email address
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>651</x>
+      <y>168</y>
+      <w>63</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+creates &gt;</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>714</x>
+      <y>140</y>
+      <w>147</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+&lt; manages</panel_attributes>
+    <additional_attributes>10.0;230.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>721</x>
+      <y>532</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Log
+--
+-output: String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>798</x>
+      <y>462</y>
+      <w>105</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+creates &gt;</panel_attributes>
+    <additional_attributes>10.0;100.0;130.0;10.0</additional_attributes>
+  </element>
+</diagram>
